@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Meme Generator</title> 
+<style> 
+    body {
+        font-family: sans-serif;
+        background-color: cornflowerblue; 
+        font-weight: bold;
+    }
+    #meme_text { 
+        background-color: transparent; 
+        font-size: 40px; 
+        font-family: "Impact"; 
+        color: white; 
+        text-shadow: black 0px 0px 10px; 
+        width: 600px; 
+        position: absolute; 
+        left: 650px; 
+        top: 550px; 
+        text-align: right;
+    } 
+    #image { 
+        width: 600px; 
+        border: 3px solid #000000; 
+        max-width: auto; height: auto; 
+    } 
+    @media screen and (max-width: 375px) {
+        body {
+            background-color: firebrick;
+            
+        }
+        .responsive {
+            max-width: 100%;
+            height: auto;
+
+        }    
+        #meme_text { 
+        background-color: transparent; 
+        font-size: 40px; 
+        font-family: "Impact"; 
+        color: white; 
+        text-shadow: black 0px 0px 10px; 
+        width: 600px; 
+        position: absolute; 
+        left: -300px; 
+        top: 350px; 
+        text-align: right;
+        }
+        
+
+        
+</style>
+</head>
+<br>
+
+<body> 
+  <center> Meme Generator</center> 
+    <br>
+<form><center> Choose a meme from your device: <input type="file" id="user_picture" onchange="update_image()"></center>
+<center><p>Meme text: 
+<input type="text" id="user_text" oninput="update_text()" maxlength="70">
+<p></center>
+</form> 
+<br>
+<script> 
+function update_image(){ 
+    var img = document.querySelector('img'); 
+    var file = document.querySelector('input[type=file]').files[0]; 
+    img.src = window.URL.createObjectURL(file);
+}
+function update_text(){ 
+    var user_text = document.getElementById("user_text"); 
+    var meme_text = document.getElementById("meme_text"); 
+    meme_text.innerHTML = user_text.value;
+}
+    </script>
+    <div id="meme_text">&nbsp;</div>
+    <div id="meme_picture">
+        <center><img src="" height="800" width="800" class="responsive">
+    </center>
+    </div>
+    <p>
+    </body>
+</html>
